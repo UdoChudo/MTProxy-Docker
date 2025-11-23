@@ -1,6 +1,5 @@
 services:
   mtproto-proxy:
-    #image: telegrammessenger/proxy:latest
     build:
       context: .
       args:
@@ -12,8 +11,5 @@ services:
     ports:
       - 8443:8889/udp
       - 8443:8889/tcp
-    environment:
-      - SECRET
-      - WORKERS
-      - MTPROTO_REPO_URL
-      - IP
+    env_file:
+      - stack.env
